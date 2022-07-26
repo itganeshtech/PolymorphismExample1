@@ -1,12 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PolymorphismExample1
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            new Program().DoSomething();
+           // DoSomething();
+        }
+
+        public void DoSomething()
+        {
+            Student me = new Student();
+            me.FirstName = "AAA";
+            Teacher you = new Teacher();
+            you.FirstName = "Bagchi";
+            List<User> users = new List<User>() { me, you };
+            {
+                foreach(User c in users)
+                {
+                    c.HelloToConsole();
+                }
+            }
+
         }
     }
 }
